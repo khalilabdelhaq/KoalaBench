@@ -1,13 +1,20 @@
 package new_bench.main;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Vector;
 
 import new_bench.flat.FlatLineItemGenerator;
 import new_bench.flat.FlatOrderGenerator;
 import new_bench.flat.Sparse1OrderGenerator;
-import new_bench.snow.*;
+import new_bench.snow.CustomerGenerator;
+import new_bench.snow.ExtDateGenerator;
+import new_bench.snow.LineItemGenerator;
+import new_bench.snow.NationGenerator;
+import new_bench.snow.OrderGenerator;
+import new_bench.snow.PartGenerator;
+import new_bench.snow.PartSupplierGenerator;
+import new_bench.snow.RegionGenerator;
+import new_bench.snow.SupplierGenerator;
 import new_bench.star.StarCustomerGenerator;
 import new_bench.star.StarLineItemGenerator;
 import new_bench.star.StarSupplierGenerator;
@@ -17,7 +24,7 @@ import new_bench.util.SchemaFilters;
 public class DBGen{
 	
 	Vector<String> options = new Vector<String>();
-	double scaleFactor = 0; 
+	double scaleFactor = 1; 
 	String format = "tab"; int noFormatOptions= 0;
 	String model = "snow"; int noModelOptions= 0;
 	int step = 1; int children = 1; // default values 
@@ -79,7 +86,6 @@ public class DBGen{
 		System.out.println("Scale factor: "+scaleFactor);
 		System.out.println("..."); 
 		
-		this.scaleFactor = 0.001; 
 		
 		switch (model){
 			case "snow": generateSnow(); break;

@@ -47,7 +47,7 @@ public class EntityInstance {
         String out = "";  int count =0; 
         for (int i=0; i<values.length; i++){
             if (projectAll || projMap.get(headers[i])!=null) {
-                out += (filter==null || filter.get(headers[i])!=null) ? addQuotes(values[i], types[i]) : addQuotes("", types[i]);
+                out += (filter==null || filter.get(headers[i])!=null) ? values[i] : "";
                 count++;
                 if ((projectAll || projMap.size()>count) && i!=headers.length-1) out += "|";
             } 
@@ -61,7 +61,7 @@ public class EntityInstance {
         for (int i=0; i<headers.length; i++){ 
             if (projectAll || projMap.get(headers[i])!=null) {
                 if (filter==null || filter.get(headers[i])!=null){
-                    out+= ( prefix+headers[i]+":" +addQuotes(values[i], types[i])) ;
+                    out+= ( addQuotes(prefix+headers[i],"o")+":" +addQuotes(values[i], types[i])) ;
                     count++; out+=", ";
                 }
             }

@@ -85,7 +85,7 @@ public class FlatLineItem extends MultiEntity{
     	Nation c_n = new Nation(1, 1, "FRA", 1, "");
     	Region c_r = new Region(1, 1, "ASIA");
     	Order o = new Order(1,1,1,'a',1,9001,"a","b",4,"t");  
-    	LineItem li = new LineItem(1, 1, 1, 1, 1, 1, 1, 1, 1, "", "", 9001, 9001, 9001, "", "", ""); 
+    	LineItem li = new LineItem(1, 1, 1, 1,1, 1, 1, 1, 1, 1, "", "", 9001, 9001, 9001, "", "", ""); 
     	// {"n","n","n","n","n","m","m", "m","s", "s", "d", "d", "d", "s", "s", "s"}; 
     	
     	FlatLineItem x = new FlatLineItem(1, li, o, c, c_n, c_r, p, s, s_n, s_r);

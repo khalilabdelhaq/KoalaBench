@@ -14,6 +14,7 @@
 package new_bench.star;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+
 import new_bench.snow.LineItem;
 import new_bench.types.AbstractEntity;
 import new_bench.types.EntityInstance;
@@ -39,13 +40,14 @@ public class StarLineItem extends AbstractEntity{
     private final String comment;
     private final long customerKey;
 
-    public static String headers[] = {"orderKey","partKey","supplierKey","lineNumber","quantity","extendedPrice","discount","tax","returnFlag","status","shipDate","commitDate","receiptDate","shipInstructions","shipMode","comment", "customerKey"}; 
-    public static String types[] = {"n","n","n","n","n","m","m", "m","s", "s", "d", "d", "d", "s", "s", "s", "l"};
+    public static String headers[] = {"orderKey","partKey","supplierKey","customerKey","lineNumber","quantity","extendedPrice","discount","tax","returnFlag","status","shipDate","commitDate","receiptDate","shipInstructions","shipMode","comment",}; 
+    public static String types[] = {"n","n","n","l","n","n","m","m", "m","s", "s", "d", "d", "d", "s", "s", "s"};
     
     public StarLineItem(long rowNumber,
             long orderKey,
             long partKey,
             long supplierKey,
+            long customerKey,
             long lineNumber,
             long quantity,
             long extendedPrice,
@@ -58,8 +60,7 @@ public class StarLineItem extends AbstractEntity{
             int receiptDate,
             String shipInstructions,
             String shipMode,
-            String comment, 
-            long customerKey
+            String comment
     		)
     {
     	super(rowNumber);
@@ -69,22 +70,23 @@ public class StarLineItem extends AbstractEntity{
     	values[0] = "" + (this.orderKey = orderKey);
     	values[1] = "" + (this.partKey = partKey);
     	values[2] = "" + (this.supplierKey = supplierKey);
-    	values[3] = "" + (this.lineNumber = lineNumber);
-    	values[4] = "" + (this.quantity = quantity);
-    	values[5] = "" + (this.extendedPrice = new TpchMoney(extendedPrice));
-    	values[6] = "" + (this.discount = new TpchMoney(discount));
-    	values[7] = "" + (this.tax = new TpchMoney(tax));
-    	values[8] = this.returnFlag = checkNotNull(returnFlag, "returnFlag is null");
-    	values[9] = this.status = checkNotNull(status, "status is null");
-        values[10] = "" + (this.shipDate = new TpchDate(shipDate));
-        values[11] = "" + (this.commitDate = new TpchDate(commitDate));
-        values[12] = "" + (this.receiptDate = new TpchDate(receiptDate));
-        values[13] = this.shipInstructions = checkNotNull(shipInstructions, "shipInstructions is null");
-        values[14] = this.shipMode = checkNotNull(shipMode, "shipMode is null");
-        values[15] = this.comment = checkNotNull(comment, "comment is null");
-        values[16] = "" + (this.customerKey = customerKey); 
+    	values[3] = "" + (this.customerKey = customerKey);
+    	values[4] = "" + (this.lineNumber = lineNumber);
+    	values[5] = "" + (this.quantity = quantity);
+    	values[6] = "" + (this.extendedPrice = new TpchMoney(extendedPrice));
+    	values[7] = "" + (this.discount = new TpchMoney(discount));
+    	values[8] = "" + (this.tax = new TpchMoney(tax));
+    	values[9] = this.returnFlag = checkNotNull(returnFlag, "returnFlag is null");
+    	values[10] = this.status = checkNotNull(status, "status is null");
+        values[11] = "" + (this.shipDate = new TpchDate(shipDate));
+        values[12] = "" + (this.commitDate = new TpchDate(commitDate));
+        values[13] = "" + (this.receiptDate = new TpchDate(receiptDate));
+        values[14] = this.shipInstructions = checkNotNull(shipInstructions, "shipInstructions is null");
+        values[15] = this.shipMode = checkNotNull(shipMode, "shipMode is null");
+        values[16] = this.comment = checkNotNull(comment, "comment is null");
+         
         entity = new EntityInstance(relationName, headers, types, values); 
-        this.setProjection(new String[]{"partKey","supplierKey","lineNumber","quantity","extendedPrice","discount","tax","returnFlag","status","receiptDate","shipInstructions","shipMode","comment"});
+        this.setProjection(new String[]{"partKey","supplierKey","customerKey","lineNumber","quantity","extendedPrice","discount","tax","returnFlag","status","receiptDate","shipInstructions","shipMode","comment"});
     }
 
     public StarLineItem(LineItem snowLineItem, long customerKey){
@@ -92,6 +94,7 @@ public class StarLineItem extends AbstractEntity{
     			snowLineItem.getOrderKey(),
     			snowLineItem.getPartKey(),
     			snowLineItem.getSupplierKey(),
+    			customerKey,
     			snowLineItem.getLineNumber(),
     			snowLineItem.getQuantity(),
     			snowLineItem.getExtendedPriceInCents(),
@@ -104,8 +107,8 @@ public class StarLineItem extends AbstractEntity{
     			snowLineItem.getReceiptDate(),
     			snowLineItem.getShipInstructions(),
     			snowLineItem.getShipMode(),
-    			snowLineItem.getComment(), 
-                customerKey); 
+    			snowLineItem.getComment()
+                ); 
     }
  
     

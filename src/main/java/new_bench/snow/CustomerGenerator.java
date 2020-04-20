@@ -36,6 +36,8 @@ public class CustomerGenerator
     private static final int ACCOUNT_BALANCE_MIN = -99999;
     private static final int ACCOUNT_BALANCE_MAX = 999999;
     private static final int ADDRESS_AVERAGE_LENGTH = 25;
+    private static final int ORDER_KEY_SPARSE_BITS = 2;
+    private static final int ORDER_KEY_SPARSE_KEEP = 3;
     //private static final int COMMENT_AVERAGE_LENGTH = 73;
 
     private final double scaleFactor;
@@ -120,6 +122,19 @@ public class CustomerGenerator
                     accountBalanceRandom.getValue(customerKey),
                     marketSegmentRandom.getValue(customerKey)       );
         }
+    }
+    
+    static long makeCustomerKey(long orderIndex)
+    {
+        long low_bits = orderIndex & ((1 << ORDER_KEY_SPARSE_KEEP) - 1);
+
+        long ok = orderIndex;
+        ok = ok >> ORDER_KEY_SPARSE_KEEP;
+        ok = ok << ORDER_KEY_SPARSE_BITS;
+        ok = ok << ORDER_KEY_SPARSE_KEEP;
+        ok += low_bits;
+
+        return ok;
     }
     
     public static void main(String[] argz){
