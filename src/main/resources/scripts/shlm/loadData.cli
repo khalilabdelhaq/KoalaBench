@@ -1,0 +1,8 @@
+
+import -table lineItem -file data/lineItem.json
+
+import -table lineItem.supplier_dim -file data/supplier.json
+
+import -table lineItem.customer_dim -file data/customer.json
+
+import -table lineItem.date_dim -file data/date.json

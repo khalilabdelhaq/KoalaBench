@@ -1,0 +1,47 @@
+{
+    "lineNumber": 1,
+    "quantity" : 45, 
+    "extendedPrice" : 44610.84, 
+    "discount" : 0.07,
+    "tax" : 0.05, 
+    "returnFlag" : "N", 
+    "status" :"O", 
+    "shipDate" : "1992-01-02", 
+    "commitDate" : "1992-01-02", 
+    "receiptDate" : "1992-01-02",
+    "shipInstructions" :"TAKE BACK RETURN",
+    "shipMode" :"MAIL", 
+    "comment" :"fluffily even asymptotes sublate f",
+    "supplier_dim" : {
+            "supplierKey" : 2, 
+            "name" :"Supplier#000000002", 
+            "address" : "0Fmzt0Fmzt0Fmzt0Fmzt0Fmzt0Fmzt2", 
+            "nationName" :"PERU", 
+            "regionName" :"AMERICA", 
+            "phone" :"27-757-757-7577", 
+            "accountBalance" : 7039.65, 
+            "comment" : "es. fluffily even asymptotes sublate fluffily fluffily even asymptotes. fluffil"
+    },
+    "customer_dim" : {
+            "customerKey" : 1,
+            "name" : "Customer#000000002",
+            "address" : "0Fmzt0Fmzt0Fmzt0Fmzt0Fmzt0Fmzt2",
+            "nation_name" : "MOROCCO",
+            "regionName" : "AFRICA", 
+            "phone" : "27-757-757-7577", 
+            "accountBalance" : 7039.65,
+            "marketSegment" : "FURNITURE"
+    },
+    "date_dim" : {
+            "datekey" : 1,
+            "month" :"1",
+            "year" : "1992", 
+            "yearMonthNum" : "1992-1", 
+            "yearMonth" : "January", 
+            "dayNumInWeek" :"1", 
+            "dayNumInMonth" : "2",
+            "dayNumInYear" : "33",
+            "monthNumInYear" : "1",
+            "weekNumInYear" :"5"
+    }
+}

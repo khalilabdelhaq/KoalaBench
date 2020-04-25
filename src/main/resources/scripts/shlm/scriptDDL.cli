@@ -1,0 +1,60 @@
+CREATE TABLE IF NOT EXISTS lineItem (
+    lineNumber Long,
+    quantity Integer, 
+    extendedPrice Double, 
+    discount Double,
+    tax Double, 
+    returnFlag Enum(O,N), 
+    status Enum(O,N), 
+    shipDate Timestamp(4), 
+    commitDate Timestamp(4), 
+    receiptDate Timestamp(4),
+    shipInstructions String,
+    shipMode String, 
+    comment String,
+    primary key (lineNumber)
+);
+#
+#
+#
+CREATE TABLE IF NOT EXISTS lineItem.supplier_dim(
+    supplierKey Long, 
+    name String, 
+    address String, 
+    nationName String, 
+    regionName String, 
+    phone String, 
+    accountBalance Double, 
+    comment String,
+    primary key (supplierKey)
+);
+#
+#
+#
+CREATE TABLE IF NOT EXISTS lineItem.customer_dim(
+    customerKey Long,
+    name String,
+    address String,
+    nation_name String,
+    regionName String, 
+    phone String, 
+    accountBalance Double,
+    marketSegment String,
+    primary key (customerKey)
+);
+#
+#
+#
+CREATE TABLE IF NOT EXISTS lineItem.date_dim(
+    datekey Long,
+    month String,
+    year String, 
+    yearMonthNum String, 
+    yearMonth String, 
+    dayNumInWeek String, 
+    dayNumInMonth String,
+    dayNumInYear String,
+    monthNumInYear String,
+    weekNumInYear String,
+    primary key (datekey)
+);

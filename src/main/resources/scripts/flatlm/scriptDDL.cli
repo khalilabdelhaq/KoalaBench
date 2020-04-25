@@ -1,0 +1,48 @@
+CREATE TABLE IF NOT EXISTS flatLineItem(
+    lineNumber Long,
+    quantity Integer, 
+    extendedPrice Double, 
+    discount Double,
+    tax Double, 
+    returnFlag Enum(O,N), 
+    status Enum(O,N), 
+    shipDate Timestamp(4), 
+    commitDate Timestamp(4), 
+    receiptDate Timestamp(4),
+    shipInstructions String,
+    shipMode String, 
+    comment String,
+    supplier_dim record(
+            supplierKey Long, 
+            name String, 
+            address String, 
+            nationName String, 
+            regionName String, 
+            phone String, 
+            accountBalance Double, 
+            comment String
+    ),
+    customer_dim record(
+            customerKey Long,
+            name String,
+            address String,
+            nation_name String,
+            regionName String, 
+            phone String, 
+            accountBalance Double,
+            marketSegment String
+    ),
+    date_dim record(
+            datekey Long,
+            month String,
+            year String, 
+            yearMonthNum String, 
+            yearMonth String, 
+            dayNumInWeek String, 
+            dayNumInMonth String,
+            dayNumInYear String,
+            monthNumInYear String,
+            weekNumInYear String
+    ),
+    primary key (lineNumber)
+);
