@@ -3,13 +3,10 @@ package new_bench.util;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.OutputStreamWriter;
-import java.util.HashMap;
 
-import org.apache.hadoop.fs.*;
-import org.apache.hadoop.conf.*;
-import org.apache.hadoop.io.*;
-//import org.apache.hadoop.mapred.*;
-import org.apache.hadoop.util.*;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
 
 import new_bench.types.Entity;
 
@@ -62,6 +59,7 @@ public class EntityPrinter {
 		if (format=="csv") return entity.toCSV(",", filters);
 		if (format=="xml") return entity.toXML(filters);
 		if (format == "elastic_search_json") return entity.toElasticSearchJson(filters); 
+		if (format == "embeded.json") return entity.toEmbededJson(filters);
 		return entity.toLine(filters);
 	}
 	

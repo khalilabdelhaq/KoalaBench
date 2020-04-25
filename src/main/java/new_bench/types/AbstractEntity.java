@@ -53,7 +53,10 @@ public abstract class AbstractEntity implements Entity
         String str = "{\"index\": {_index: \"tpch\", _type: \""+ this.relationName + "\", _id: "+ this.rowNumber + "}}";
         return str + "\n"  + this.toJson(filters);       
     }
-    
+    @Override
+    public String toEmbededJson(SchemaFilters filters) {
+    	return entity.toJson(filters);
+    }
     @Override
     public String toXML(SchemaFilters filters){ return entity.toXML(filters); }
     

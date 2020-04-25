@@ -33,7 +33,7 @@ public class Distributions
     {
         if (DEFAULT_DISTRIBUTIONS == null) {
             try {
-                URL resource = Resources.getResource(Distribution.class, "dists.dss");
+                URL resource = Resources.getResource(Distribution.class, "dists1.dss");
                 checkState(resource != null, "Distribution file 'dists.dss' not found");
                 DEFAULT_DISTRIBUTIONS = new Distributions(loadDistribution(Resources.asCharSource(resource, Charsets.UTF_8)));
             }

@@ -32,5 +32,7 @@ public interface Entity
     public String toXML(SchemaFilters filters);
     public String toElasticSearchJson(SchemaFilters filters); 
     public String toCSV(String valueSeparator, SchemaFilters filters);
+
+	public String toEmbededJson(SchemaFilters filters);
     
 }

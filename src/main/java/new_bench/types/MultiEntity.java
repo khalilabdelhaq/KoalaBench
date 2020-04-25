@@ -98,6 +98,22 @@ public class MultiEntity implements Entity
     }
     
     @Override
+    public String toEmbededJson(SchemaFilters filters){
+        String str = entities[0].toJson(filters).trim();  
+    
+        String out = "{" + str.substring(1, str.length() -1); 
+        for (int i=1; i<entities.length; i++){
+        	str=addQuotes(entities[i].relationName)+":";
+            str += entities[i].toJson(filters).trim();
+            out += "," + str.substring(0, str.length()); 
+        }
+        return out + "}";  
+    }
+    
+    private String addQuotes(String val){
+        return "\""+val+"\"";
+    }
+    @Override
     public String toElasticSearchJson(SchemaFilters filters){
         String str = "{\"index\": {_index: \"tpch\", _type: \""+ this.relationName + "\", _id: "+ this.rowNumber + "}}";
         return str + "\n" + this.toJson(filters);  

@@ -3,6 +3,11 @@ package new_bench.main;
 import java.io.File;
 import java.util.Vector;
 
+import new_bench.SHLM.SHLMCustomerGenerator;
+import new_bench.SHLM.SHLMLineItemGenerator;
+import new_bench.SHLM.SHLMSupplierGenerator;
+import new_bench.SnHLM.SnExtDateGenerator;
+import new_bench.SnHLM.SnPartGenerator;
 import new_bench.flat.FlatLineItemGenerator;
 import new_bench.flat.FlatOrderGenerator;
 import new_bench.flat.Sparse1OrderGenerator;
@@ -58,6 +63,7 @@ public class DBGen{
 		 			
 		// FORMAT
 		if (options.contains("json")) {format = "json"; noFormatOptions++; }
+		if (options.contains("embeded_json")) {format = "embeded.json"; noFormatOptions++; }
 		if (options.contains("xml")) {format = "xml"; noFormatOptions++; }
 		if (options.contains("csv")) {format = "csv"; noFormatOptions++; }
 		if (options.contains("tab")) {format = "tab"; noFormatOptions++; }
@@ -70,6 +76,9 @@ public class DBGen{
 		if (options.contains("flat")) {model = "flat"; noModelOptions++; }
 		if (options.contains("flat_order")) {model = "flat_order"; noModelOptions++; }
 		if (options.contains("sparse")) {model = "sparse"; noModelOptions++; }
+		if (options.contains("shlm")) {model = "shlm"; noModelOptions++; }
+		if (options.contains("snhlm")) {model = "snhlm"; noModelOptions++; }
+		if (options.contains("flatlm")) {model = "flatlm"; noModelOptions++; }
 		// check on model options
 		if (noModelOptions>1) {System.out.println("ERROR: Multiple model options");  return;}
 		
@@ -93,9 +102,36 @@ public class DBGen{
 			case "flat": generateFlat(); break;
 			case "flat_order": generateFlatOrder(); break;
 			case "sparse": generateSparse(); break;
+			case "shlm" :generateSHLM();break;
+			case "snhlm" :generateSnHLM();break;
+			case "flatlm" :generateFlat();break;
 		}
 	}
 	
+	private void generateSnHLM() {
+		// TODO Auto-generated method stub
+		
+	}
+	private void generateSHLM() {
+		SHLMCustomerGenerator custGen = new SHLMCustomerGenerator((int) scaleFactor);
+		p.print(custGen, genDataDir+sep+"star_customer", format); 
+		
+		SnPartGenerator partGen = new SnPartGenerator(scaleFactor, step, children);
+		p.print(partGen, genDataDir+sep+"star_part", format); 
+
+		SHLMSupplierGenerator psGen = new SHLMSupplierGenerator( (int) scaleFactor);
+		p.print(psGen, genDataDir+sep+"star_supplier", format); 
+		
+		SHLMLineItemGenerator lineItemGen = new SHLMLineItemGenerator((int) scaleFactor);
+		p.print(lineItemGen, genDataDir+sep+"star_line_item", format);
+		
+		SnExtDateGenerator dateGen = new SnExtDateGenerator(); 
+		p.print(dateGen, genDataDir+sep+"snow_date", format);
+		
+		System.out.println("\n...\nData generation ended");
+		
+	}
+
 	private void generateSnow(){
 		
 		CustomerGenerator custGen = new CustomerGenerator(scaleFactor, step, children);

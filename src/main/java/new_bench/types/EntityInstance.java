@@ -1,6 +1,7 @@
 package new_bench.types;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import new_bench.util.SchemaFilters;
 
@@ -8,6 +9,7 @@ public class EntityInstance {
     private boolean projectAll = true;
 
     protected String headers[];
+    protected Map<String,String[]> records;
     protected String values[];
     protected String[] types;
     protected String relationName; 

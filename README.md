@@ -12,17 +12,11 @@ Data can be generated in different file formats: .tab, .csv, .json and .xml.
 
 Data can be generated to follow different conceptual logical schemas for data warehousing: 
 - snow flake logical model 
-      - with schema as in image:  http://www.irit.fr/recherches/SIG/files/model_for_snow.pdf 
-      - with instances like the following JSON: http://www.irit.fr/recherches/SIG/files/instance_snow.json 
 - star logical model 
-      - with schema as in image:  http://www.irit.fr/recherches/SIG/files/model_for_star.pdf 
-      - with instances like the following JSON: http://www.irit.fr/recherches/SIG/files/instance_star.json 
 - flat model 
-      - with schema as in image:  http://www.irit.fr/recherches/SIG/files/model_for_flat.pdf 
-      - with instances like the following JSON: http://www.irit.fr/recherches/SIG/files/instance_flat.json 
 - sparse vector 
-      - with schema as in image:  http://www.irit.fr/recherches/SIG/files/model_for_sparse_order.pdf 
-      - with instances like the following JSON: http://www.irit.fr/recherches/SIG/files/instance_sparse.json 
+- Star Hierarchical Logical Model (shlm)
+- Flat Logical Model (flatlm)
 
 Usage instructions
 ------------------
@@ -67,19 +61,10 @@ Documentation
 
 The documentation is available on the following links: 
 
-- technical document: http://www.irit.fr/recherches/SIG/files/KoalaBench_technical_report.pdf
 - TPC-H documentation: http://www.tpc.org/tpc_documents_current_versions/pdf/tpch2.17.1.pdf
 - SSB documentation: http://www.cs.umb.edu/~poneil/StarSchemaB.PDF 
 
-Notes and contact
------------------
+In scripts under resources folder you can find instances of differents models in json format . namely (flat,star,snow,flatlm,shlm),and scripts to create the logical models and for loading data.
+
 
 This is an ongoing work. There might be bugs and unsolved issues. 
-
-- Arlind Kopliku: ArlindKopliku at irit.fr Software Engineer, PhD 
-- Olivier Teste: Olivier.Teste at irit.fr Professor at the University of Toulouse III, permanent
-<<<<<<< HEAD
-- Mohammed El Malki: Mohammed.ElMalki at irit.fr PhD student at the University of Toulouse III, permanent
-=======
-- Mohammed El Malki: Mohammed.ElMalki at irit.fr PhD student at the University of Toulouse III, permanent
->>>>>>> origin/master
