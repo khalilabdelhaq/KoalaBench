@@ -84,7 +84,7 @@ public class SnPartSupplierGenerator
         private final RandomBoundedInt supplyCostRandom;
         private final RandomText commentRandom;
 
-        private long index;
+        private long index=1;
         private int partSupplierNumber;
 
         private PartSupplierGeneratorIterator(TextPool textPool, double scaleFactor, long startIndex, long rowCount)
@@ -101,7 +101,7 @@ public class SnPartSupplierGenerator
         @Override
         protected SnPartSupplier computeNext()
         {
-            if (index >= rowCount) {
+            if (index > rowCount) {
                 return endOfData();
             }
 

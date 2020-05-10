@@ -1,60 +1,65 @@
 CREATE TABLE IF NOT EXISTS lineItem (
-    lineNumber Long,
-    quantity Integer, 
-    extendedPrice Double, 
-    discount Double,
-    tax Double, 
-    returnFlag Enum(O,N), 
-    status Enum(O,N), 
-    shipDate Timestamp(4), 
-    commitDate Timestamp(4), 
-    receiptDate Timestamp(4),
-    shipInstructions String,
-    shipMode String, 
-    comment String,
-    primary key (lineNumber)
+	orderKey Long,
+	quantity Integer,
+	extendedPrice Double,
+	discount Double,
+	tax Double,
+	returnFlag Enum(A,R),
+	status F,
+	receiptDate Timestamp(4),
+	shipInstructions String,
+	shipMode String,
+	comment String,
+	primary key (orderKey)
 );
-#
-#
-#
-CREATE TABLE IF NOT EXISTS lineItem.supplier_dim(
-    supplierKey Long, 
-    name String, 
-    address String, 
-    nationName String, 
-    regionName String, 
-    phone String, 
-    accountBalance Double, 
-    comment String,
-    primary key (supplierKey)
-);
-#
-#
-#
+
 CREATE TABLE IF NOT EXISTS lineItem.customer_dim(
-    customerKey Long,
-    name String,
-    address String,
-    nation_name String,
-    regionName String, 
-    phone String, 
-    accountBalance Double,
-    marketSegment String,
-    primary key (customerKey)
+	customerKey Long,
+	name String,
+	address String,
+	nation_name String,
+	regionName String,
+	phone String,
+	accountBalance Double,
+	marketSegment String,
+	primary key (customerKey)
 );
-#
-#
-#
+
+CREATE TABLE IF NOT EXISTS lineItem.supplier_dim(
+	supplierKey Long,
+	name String,
+	address String,
+	nationName String,
+	regionName String,
+	phone String,
+	accountBalance Double,
+	comment String,
+	primary key (supplierKey)
+);
+
+CREATE TABLE IF NOT EXISTS lineItem.part_dim(
+	partKey Long,
+	name String,
+	manufacturer String,
+	brand String,
+	type String,
+	size Integer,
+	container String,
+	retailPrice Double,
+	comment  String,
+	primary key (partKey)
+);
+
 CREATE TABLE IF NOT EXISTS lineItem.date_dim(
-    datekey Long,
-    month String,
-    year String, 
-    yearMonthNum String, 
-    yearMonth String, 
-    dayNumInWeek String, 
-    dayNumInMonth String,
-    dayNumInYear String,
-    monthNumInYear String,
-    weekNumInYear String,
-    primary key (datekey)
-);
+	date Timestamp(4),
+	month String,
+	year Integer,
+	yearMonthNum String,
+	yearMonth String,
+	dayNumInWeek Integer,
+	dayNumInMonth Integer,
+	dayNumInYear Integer,
+	monthNumInYear Integer,
+	weekNumInYear Integer,
+	primary key (date)
+}

@@ -89,7 +89,7 @@ public class CustomerGenerator
         private final long startIndex;
         private final long rowCount;
 
-        private long index;
+        private long index=1;
 
         public CustomerGeneratorIterator(Distributions distributions, TextPool textPool, long startIndex, long rowCount)
         {
@@ -103,7 +103,7 @@ public class CustomerGenerator
         @Override
         public Customer computeNext()
         {
-            if (index >= rowCount) { return endOfData();  }
+            if (index > rowCount) { return endOfData();  }
             Customer customer = makeCustomer(startIndex + index + 1);
             index++;
             return customer;

@@ -115,7 +115,7 @@ public class LineItemGenerator implements Iterable<LineItem> {
 
 		private final long rowCount;
 
-		private long index;
+		private long index=1;
 		private int orderDate;
 		private int lineCount;
 		private int lineNumber;
@@ -140,21 +140,13 @@ public class LineItemGenerator implements Iterable<LineItem> {
 
 		@Override
 		public LineItem computeNext() {
-			if (index >= rowCount) {
+			if (index > rowCount) {
 				return endOfData();
 			}
 
 			LineItem lineitem = makeLineitem(startIndex + index + 1);
 			lineNumber++;
-
-			// advance next row only when all lines for the order have been produced
-			if (lineNumber > lineCount) {
-				index++;
-				// generate information for next order
-				lineCount = lineCountRandom.getValue(index) - 1;
-				orderDate = orderDateRandom.getValue(index);
-				lineNumber = 0;
-			}
+			index++;
 
 			return lineitem;
 		}

@@ -1,2 +1,13 @@
-{"lineNumber":2, "quantity":32, "extendedPrice":44610.84, "discount":0.07, "tax":0.05, "returnFlag":"N", "status":"O", "shipDate":"1992-01-02", "commitDate":"1992-01-02", "receiptDate":"1992-01-02", "shipInstructions":"TAKE BACK RETURN", "shipMode":"MAIL", "comment":"fluffily even asymptotes sublate f"}
-{"lineNumber":3, "quantity":30, "extendedPrice":44620.84, "discount":0.07, "tax":0.05, "returnFlag":"N", "status":"O", "shipDate":"1992-01-02", "commitDate":"1992-01-02", "receiptDate":"1992-01-02", "shipInstructions":"TAKE BACK RETURN", "shipMode":"MAIL", "comment":"no comment"}
+{
+	"orderKey": "29",
+	"quantity": 36,
+	"extendedPrice": 61512.84,
+	"discount": "0.07",
+	"tax": "0.05",
+	"returnFlag": "R",
+	"status": "F",
+	"receiptDate": "1993-09-20",
+	"shipInstructions": "TAKE BACK RETURN",
+	"shipMode": "MAIL",
+	"comment": "ptotes. fluffily even asymptotes s"
+}

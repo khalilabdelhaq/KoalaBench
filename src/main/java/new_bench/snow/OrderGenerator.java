@@ -43,7 +43,7 @@ import static new_bench.util.GenerateUtils.toEpochDate;
 public class OrderGenerator
         implements Iterable<Order>
 {
-    public static final int SCALE_BASE = 1_500_000;
+    public static final int SCALE_BASE = 1_500;
 
     // portion with have no orders
     public static final int CUSTOMER_MORTALITY = 3;
@@ -118,7 +118,7 @@ public class OrderGenerator
 
         private final long maxCustomerKey;
 
-        private long index;
+        private long index=1;
 
         public OrderGeneratorIterator(Distributions distributions, TextPool textPool, double scaleFactor, long startIndex, long rowCount)
         {
@@ -139,7 +139,7 @@ public class OrderGenerator
         @Override
         public Order computeNext()
         {
-            if (index >= rowCount) {
+            if (index > rowCount) {
                 return endOfData();
             }
 

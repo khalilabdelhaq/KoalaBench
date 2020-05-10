@@ -93,7 +93,7 @@ public class PartGenerator
         private final long startIndex;
         private final long rowCount;
 
-        private long index;
+        private long index=1;
 
         public PartGeneratorIterator(Distributions distributions, TextPool textPool, long startIndex, long rowCount)
         {
@@ -113,7 +113,7 @@ public class PartGenerator
         @Override
         protected Part computeNext()
         {
-            if (index >= rowCount) {
+            if (index > rowCount) {
                 return endOfData();
             }
 

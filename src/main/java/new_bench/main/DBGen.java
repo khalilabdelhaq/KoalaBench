@@ -1,6 +1,8 @@
 package new_bench.main;
 
 import java.io.File;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Vector;
 
 import new_bench.SHLM.SHLMCustomerGenerator;
@@ -205,7 +207,13 @@ public class DBGen{
 	}
 
 	public static void main(String argz[]){	
+		Instant start = Instant.now();
+		
 		DBGen gen = new DBGen(argz);
 		gen.generate();
+		
+		Instant finish = Instant.now();
+	    long timeElapsed = Duration.between(start, finish).toMillis();  //in millis
+	    System.out.println("time elapsed : "+timeElapsed);
 	}
 }

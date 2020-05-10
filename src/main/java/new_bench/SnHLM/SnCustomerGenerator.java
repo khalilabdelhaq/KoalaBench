@@ -92,7 +92,7 @@ public class SnCustomerGenerator
         private final long startIndex;
         private final long rowCount;
 
-        private long index;
+        private long index=1;
 
         public CustomerGeneratorIterator(Distributions distributions, TextPool textPool, long startIndex, long rowCount)
         {
@@ -101,13 +101,13 @@ public class SnCustomerGenerator
 
             nationKeyRandom = new RandomBoundedInt(0, distributions.getNations().size() - 1);
             marketSegmentRandom = new RandomString(distributions.getMarketSegments());
-            customerKeyGanartor=new  RandomBoundedLong(true,1L,rowCount/2);
+            customerKeyGanartor=new  RandomBoundedLong(true,1L,rowCount/10);
         }
 
         @Override
         public SnCustomer computeNext()
         {
-            if (index >= rowCount) { return endOfData();  }
+            if (index > rowCount) { return endOfData();  }
             long customerKey = customerKeyGanartor.getValue(index);
             SnCustomer customer = makeCustomer(customerKey,index);
             index++;

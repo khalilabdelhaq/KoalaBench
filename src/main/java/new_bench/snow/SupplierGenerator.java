@@ -99,7 +99,7 @@ public class SupplierGenerator
         private final long startIndex;
         private final long rowCount;
 
-        private long index;
+        private long index=1;
 
         public SupplierGeneratorIterator(Distributions distributions, TextPool textPool, long startIndex, long rowCount)
         {
@@ -114,7 +114,7 @@ public class SupplierGenerator
         @Override
         protected Supplier computeNext()
         {
-            if (index >= rowCount) {
+            if (index > rowCount) {
                 return endOfData();
             }
             Supplier supplier = makeSupplier(startIndex + index + 1);

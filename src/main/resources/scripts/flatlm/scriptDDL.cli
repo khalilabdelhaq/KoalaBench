@@ -1,48 +1,56 @@
 CREATE TABLE IF NOT EXISTS flatLineItem(
-    lineNumber Long,
-    quantity Integer, 
-    extendedPrice Double, 
-    discount Double,
-    tax Double, 
-    returnFlag Enum(O,N), 
-    status Enum(O,N), 
-    shipDate Timestamp(4), 
-    commitDate Timestamp(4), 
-    receiptDate Timestamp(4),
-    shipInstructions String,
-    shipMode String, 
-    comment String,
-    supplier_dim record(
-            supplierKey Long, 
-            name String, 
-            address String, 
-            nationName String, 
-            regionName String, 
-            phone String, 
-            accountBalance Double, 
-            comment String
-    ),
-    customer_dim record(
-            customerKey Long,
-            name String,
-            address String,
-            nation_name String,
-            regionName String, 
-            phone String, 
-            accountBalance Double,
-            marketSegment String
-    ),
-    date_dim record(
-            datekey Long,
-            month String,
-            year String, 
-            yearMonthNum String, 
-            yearMonth String, 
-            dayNumInWeek String, 
-            dayNumInMonth String,
-            dayNumInYear String,
-            monthNumInYear String,
-            weekNumInYear String
-    ),
-    primary key (lineNumber)
+	lineNumber Long,
+	quantity Integer,
+	extendedPrice Double,
+	discount Double,
+	tax Double,
+	returnFlag Enum(O,N),
+	status Enum(O,N),
+	shipDate Timestamp(4),
+	commitDate Timestamp(4),
+	receiptDate Timestamp(4),
+	shipInstructions String,
+	shipMode String,
+	Order (
+		o_orderKey Long,
+		o_orderStatus Enum(O,N),
+		o_orderDate Timestamp(4),
+		o_orderPriority String,
+		o_shipPriority Integer
+	),
+	Customer (
+		c_customerKey Long,
+		c_name String,
+		c_address String,
+		c_phone String,
+		c_marketSegment String
+	),
+	C_Nation (
+		c_nation_name String
+	),
+	C_Region (
+		c_region_name String
+	),
+	Part (
+		p_partKey Long,
+		p_name String,
+		p_manufacturer String,
+		p_brand String,
+		p_type String,
+		p_size Integer,
+		p_container String,
+		p_retailPrice Double
+	),
+	Supplier (
+		s_supplierKey Long,
+		s_name String,
+		s_address String,
+		s_phone String
+	),
+	S_Nation (
+		s_nation_name String
+	),
+	S_Region (
+		s_region_name AFRICA
+	)
 );

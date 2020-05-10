@@ -103,7 +103,7 @@ public class SnSupplierGenerator
         private final long startIndex;
         private final long rowCount;
 
-        private long index;
+        private long index=1;
 
         public SupplierGeneratorIterator(Distributions distributions, TextPool textPool, long startIndex, long rowCount)
         {
@@ -112,14 +112,14 @@ public class SnSupplierGenerator
 
             nationKeyRandom = new RandomBoundedInt( 0, distributions.getNations().size() - 1);
             commentRandom = new RandomText( textPool, COMMENT_AVERAGE_LENGTH);
-            supplierKeyGanartor=new  RandomBoundedLong(true,1L,rowCount/2);
+            supplierKeyGanartor=new  RandomBoundedLong(true,1L,rowCount/150);
 
         }
 
         @Override
         protected SnSupplier computeNext()
         {
-            if (index >= rowCount) {
+            if (index > rowCount) {
                 return endOfData();
             }
             long supplierKey=supplierKeyGanartor.getValue(index);

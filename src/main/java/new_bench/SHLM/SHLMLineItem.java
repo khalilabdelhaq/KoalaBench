@@ -36,7 +36,7 @@ public class SHLMLineItem extends AbstractEntity{
     private final String shipMode;
     private final String comment;
 
-    public static String headers[] = {"lineNumber","quantity","extendedPrice","discount","tax","returnFlag","status","shipDate","commitDate","receiptDate","shipInstructions","shipMode","comment",}; 
+    public static String headers[] = {"orderKey","quantity","extendedPrice","discount","tax","returnFlag","status","shipDate","commitDate","receiptDate","shipInstructions","shipMode","comment",}; 
     public static String types[] = {"l","n","n","m","m", "m","s", "s", "d", "d", "d", "s", "s", "s"};
     
     public SHLMLineItem(long rowNumber,
@@ -74,7 +74,7 @@ public class SHLMLineItem extends AbstractEntity{
         values[12] = this.comment = checkNotNull(comment, "comment is null");
          
         entity = new EntityInstance(relationName, headers, types, values); 
-        this.setProjection(new String[]{"lineNumber","quantity","extendedPrice","discount","tax","returnFlag","status","receiptDate","shipInstructions","shipMode","comment"});
+        this.setProjection(new String[]{"orderKey","quantity","extendedPrice","discount","tax","returnFlag","status","receiptDate","shipInstructions","shipMode","comment"});
     }
 
     public SHLMLineItem(SnLineItem SnHLMLineItem){

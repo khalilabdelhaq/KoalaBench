@@ -96,7 +96,7 @@ public class SnPartGenerator
         private final long startIndex;
         private final long rowCount;
 
-        private long index;
+        private long index=1;
 
         public PartGeneratorIterator(Distributions distributions, TextPool textPool, long startIndex, long rowCount)
         {
@@ -111,7 +111,7 @@ public class SnPartGenerator
             containerRandom = new RandomString(distributions.getPartContainers());
             commentRandom = new RandomText(textPool, COMMENT_AVERAGE_LENGTH);
             
-            partKeyGanartor=new  RandomBoundedLong(true,1L,rowCount/2);
+            partKeyGanartor=new  RandomBoundedLong(true,1L,rowCount/7);
 
         }
 
@@ -119,7 +119,7 @@ public class SnPartGenerator
         protected SnPart computeNext()
         {
             
-            if (index >= rowCount) {
+            if (index > rowCount) {
                 return endOfData();
             }
             long partKey = partKeyGanartor.getValue(index);

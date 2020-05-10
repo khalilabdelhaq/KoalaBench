@@ -1,47 +1,56 @@
 {
-    "lineNumber": 1,
-    "quantity" : 45, 
-    "extendedPrice" : 44610.84, 
-    "discount" : 0.07,
-    "tax" : 0.05, 
-    "returnFlag" : "N", 
-    "status" :"O", 
-    "shipDate" : "1992-01-02", 
-    "commitDate" : "1992-01-02", 
-    "receiptDate" : "1992-01-02",
-    "shipInstructions" :"TAKE BACK RETURN",
-    "shipMode" :"MAIL", 
-    "comment" :"fluffily even asymptotes sublate f",
-    "supplier_dim" : {
-            "supplierKey" : 2, 
-            "name" :"Supplier#000000002", 
-            "address" : "0Fmzt0Fmzt0Fmzt0Fmzt0Fmzt0Fmzt2", 
-            "nationName" :"PERU", 
-            "regionName" :"AMERICA", 
-            "phone" :"27-757-757-7577", 
-            "accountBalance" : 7039.65, 
-            "comment" : "es. fluffily even asymptotes sublate fluffily fluffily even asymptotes. fluffil"
-    },
-    "customer_dim" : {
-            "customerKey" : 1,
-            "name" : "Customer#000000002",
-            "address" : "0Fmzt0Fmzt0Fmzt0Fmzt0Fmzt0Fmzt2",
-            "nation_name" : "MOROCCO",
-            "regionName" : "AFRICA", 
-            "phone" : "27-757-757-7577", 
-            "accountBalance" : 7039.65,
-            "marketSegment" : "FURNITURE"
-    },
-    "date_dim" : {
-            "datekey" : 1,
-            "month" :"1",
-            "year" : "1992", 
-            "yearMonthNum" : "1992-1", 
-            "yearMonth" : "January", 
-            "dayNumInWeek" :"1", 
-            "dayNumInMonth" : "2",
-            "dayNumInYear" : "33",
-            "monthNumInYear" : "1",
-            "weekNumInYear" :"5"
-    }
+	"lineNumber": 1,
+	"quantity": 36,
+	"extendedPrice": "43962.12",
+	"discount": "0.07",
+	"tax": "0.05",
+	"returnFlag": "N",
+	"status": "O",
+	"shipDate": "1996-08-22",
+	"commitDate": "1996-08-07",
+	"receiptDate": "1996-09-13",
+	"shipInstructions": "TAKE BACK RETURN",
+	"shipMode": "MAIL",
+	"Order": {
+		"o_orderKey": 1,
+		"o_orderStatus": "O",
+		"o_orderDate": "1996-10-23",
+		"o_orderPriority": "3-MEDIUM",
+		"o_shipPriority": 0
+	},
+	"Customer": {
+		"c_customerKey": 109631,
+		"c_name": "Customer#000109631",
+		"c_address": "0RQN20RQN2",
+		"c_phone": "10-119-119-1196",
+		"c_marketSegment": "AUTOMOBILE"
+	},
+	"Nation": {
+		"c_nation_name": "ALGERIA"
+	},
+	"Region": {
+		"c_region_name": "AFRICA"
+	},
+	"Part": {
+		"p_partKey": 146175,
+		"p_name": "deep dim antique dodger drab",
+		"p_manufacturer": "Manufacturer#1",
+		"p_brand": "Brand#11",
+		"p_type": "SMALL PLATED NICKEL",
+		"p_size": 13,
+		"p_container": "LG BOX",
+		"p_retailPrice": "1221.17"
+	},
+	"Supplier": {
+		"s_supplierKey": 1204,
+		"s_name": "Supplier#000001204",
+		"s_address": "0oT3j0oT3j0oT3j0oT3j0oT3j0oT3",
+		"s_phone": "25-683-683-6839"
+	},
+	"Nation": {
+		"s_nation_name": "MOROCCO"
+	},
+	"Region": {
+		"s_region_name": "AFRICA"
+	}
 }
