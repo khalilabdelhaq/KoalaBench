@@ -11,27 +11,27 @@ CREATE TABLE IF NOT EXISTS flatLineItem(
 	receiptDate Timestamp(4),
 	shipInstructions String,
 	shipMode String,
-	Order (
+	Order record (
 		o_orderKey Long,
 		o_orderStatus Enum(O,N),
 		o_orderDate Timestamp(4),
 		o_orderPriority String,
 		o_shipPriority Integer
 	),
-	Customer (
+	Customer record (
 		c_customerKey Long,
 		c_name String,
 		c_address String,
 		c_phone String,
 		c_marketSegment String
 	),
-	C_Nation (
+	C_Nation record (
 		c_nation_name String
 	),
-	C_Region (
+	C_Region record (
 		c_region_name String
 	),
-	Part (
+	Part record (
 		p_partKey Long,
 		p_name String,
 		p_manufacturer String,
@@ -41,16 +41,16 @@ CREATE TABLE IF NOT EXISTS flatLineItem(
 		p_container String,
 		p_retailPrice Double
 	),
-	Supplier (
+	Supplier record (
 		s_supplierKey Long,
 		s_name String,
 		s_address String,
 		s_phone String
 	),
-	S_Nation (
+	S_Nation record (
 		s_nation_name String
 	),
-	S_Region (
+	S_Region record (
 		s_region_name AFRICA
 	)
 );

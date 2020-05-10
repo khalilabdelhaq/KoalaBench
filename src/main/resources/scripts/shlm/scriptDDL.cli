@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS lineItem (
 	discount Double,
 	tax Double,
 	returnFlag Enum(A,R),
-	status F,
+	status Enum(F,O),
 	receiptDate Timestamp(4),
 	shipInstructions String,
 	shipMode String,
