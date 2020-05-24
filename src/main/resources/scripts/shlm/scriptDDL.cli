@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS lineItem (
 	extendedPrice Double,
 	discount Double,
 	tax Double,
-	returnFlag Enum(A,R),
+	returnFlag Enum(N,A,R),
 	status Enum(F,O),
 	receiptDate Timestamp(4),
 	shipInstructions String,
@@ -62,4 +62,4 @@ CREATE TABLE IF NOT EXISTS lineItem.date_dim(
 	monthNumInYear Integer,
 	weekNumInYear Integer,
 	primary key (date)
-}
+);

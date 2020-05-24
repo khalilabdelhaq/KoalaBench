@@ -36,7 +36,7 @@ import new_bench.util.TextPool;
 public class SnSupplierGenerator
         implements Iterable<SnSupplier>
 {
-    public static final int SCALE_BASE = 150_000;
+    public static final int SCALE_BASE = 1_500_000;
 
     private static final int ACCOUNT_BALANCE_MIN = -99999;
     private static final int ACCOUNT_BALANCE_MAX = 999999;

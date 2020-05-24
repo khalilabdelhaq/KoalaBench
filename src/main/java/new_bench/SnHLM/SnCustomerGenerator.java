@@ -34,7 +34,7 @@ import new_bench.util.TextPool;
 public class SnCustomerGenerator
         implements Iterable<SnCustomer>
 {
-    public static final int SCALE_BASE = 150_000;
+    public static final int SCALE_BASE = 1_500_000;
     private static final int ACCOUNT_BALANCE_MIN = -99999;
     private static final int ACCOUNT_BALANCE_MAX = 999999;
     private static final int ADDRESS_AVERAGE_LENGTH = 25;

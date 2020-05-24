@@ -36,6 +36,31 @@ java -jar /u01/nosql/kv-18.1.19/lib/sql.jar -helper-hosts debian:5000 \
 -store kvstore load \
 -file /u01/nosql/DDL/loadData.cli
 
+-----Oracle Nosql Key value Store as docker container  -----------
+
+run container :
+docker run --name nosql-container --net=host -p 5000:5000 -d oracle/nosql
+
+SQL line command :
+
+docker run --rm -ti  oracle/nosql java -jar lib/sql.jar -helper-hosts debian:5000 -store kvstore
+
+The data loading can be called through the DBLoad Java class.  If you invoke: 
+
+
+
+Below, we list the invocation options: 
+-store: store name.
+-host : host ip adress.
+-port : port running kvlite.
+-table : table name.
+-file : canonical path for json file.
+For instance
+
+      -store kvstore -host hostIpAdress -port portNum -table lineItem.supplier_dim -file D:\data\supplier.json
+
+will load data from supplier.json into lineItem.supplier_dim table. 
+
 ------ Oracle relational database ----------
 
 to execute schema definition run : 

@@ -34,7 +34,7 @@ import new_bench.util.TextPool;
 public class SnPartGenerator
         implements Iterable<SnPart>
 {
-    public static final int SCALE_BASE = 150_000;
+    public static final int SCALE_BASE = 1_500_000;
 
     private static final int NAME_WORDS = 5;
     private static final int MANUFACTURER_MIN = 1;

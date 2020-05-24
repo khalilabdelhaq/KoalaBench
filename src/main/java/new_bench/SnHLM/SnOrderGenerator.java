@@ -43,7 +43,7 @@ import static new_bench.util.GenerateUtils.toEpochDate;
 public class SnOrderGenerator
         implements Iterable<SnOrder>
 {
-    public static final int SCALE_BASE = 150_000;
+    public static final int SCALE_BASE = 1_500_000;
 
     // portion with have no orders
     public static final int CUSTOMER_MORTALITY = 3;

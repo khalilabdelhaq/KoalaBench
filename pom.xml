@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>ma.ac.uhp</groupId>
-    <artifactId>TPCH-Genertor</artifactId>
-    <version>0.6-SNAPSHOT</version>
-    <packaging>jar</packaging>
+	<groupId>ma.ac.uhp</groupId>
+	<artifactId>TPCH-Genertor</artifactId>
+	<version>0.6-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-    <name>TPCH-Genertor</name>
-    <description>Port of TPC-H dbgen to Java</description>
-    <url>https://github.com/airlift/tpch</url>
+	<name>TPCH-Genertor</name>
+	<description>Port of TPC-H dbgen to Java</description>
+	<url>https://github.com/airlift/tpch</url>
 
-    <inceptionYear>2014</inceptionYear>
+	<inceptionYear>2014</inceptionYear>
 
 	<properties>
 		<air.check.skip-extended>true</air.check.skip-extended>
@@ -52,7 +54,28 @@
 			<artifactId>hadoop-common</artifactId>
 			<version>2.3.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.oracle.kv/oracle-nosql-client -->
+		<dependency>
+			<groupId>com.oracle.kv</groupId>
+			<artifactId>oracle-nosql-client</artifactId>
+			<version>18.3.10</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.10</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.11</version>
+		</dependency>
 
 	</dependencies>
 
