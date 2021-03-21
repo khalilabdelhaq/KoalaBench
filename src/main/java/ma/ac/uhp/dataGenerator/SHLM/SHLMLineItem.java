@@ -37,7 +37,7 @@ public class SHLMLineItem extends AbstractEntity{
     private final String comment;
 
     public static String headers[] = {"orderKey","quantity","extendedPrice","discount","tax","returnFlag","status","shipDate","commitDate","receiptDate","shipInstructions","shipMode","comment",}; 
-    public static String types[] = {"l","n","n","m","m", "m","s", "s", "d", "d", "d", "s", "s", "s"};
+    public static String types[] = {"n","n","n","m","m", "m","s", "s", "d", "d", "d", "s", "s", "s"};
     
     public SHLMLineItem(long rowNumber,
             long lineNumber,

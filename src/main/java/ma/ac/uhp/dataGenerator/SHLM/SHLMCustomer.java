@@ -32,7 +32,7 @@ public class SHLMCustomer extends AbstractEntity
     private final TpchMoney accountBalance;
     private final String marketSegment;
     public static String headers[] = {"orderKey","customerKey","name","address","nation_name","regionName","phone","accountBalance","marketSegment"}; 
-    public static String types[] = {"l","n","s","s","s", "s", "s","m","s", "s"}; 
+    public static String types[] = {"n","n","s","s","s", "s", "s","m","s", "s"}; 
     
     public SHLMCustomer(long rowNumber,long orderKey, long customerKey, String name, String address, String nationName, String regionName, String phone, long accountBalance, String marketSegment)
     {
